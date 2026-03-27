@@ -1,0 +1,216 @@
+/* =========================
+   BODY & BACKGROUND
+========================= */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(45deg, #d0e8f2, #fcefee, #fff2d6);
+    background-size: 400% 400%;
+    animation: gradientShift 25s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+header h1 {
+    font-size: 2.8em;
+    color: #3a4a5a;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #5a6773;
+}
+
+/* PROFILE IMAGE FLOATING */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #b0d4e2;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    animation: floatPic 4s ease-in-out infinite alternate;
+}
+
+@keyframes floatPic {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-10px); }
+}
+
+.wave {
+    display: inline-block;
+    animation: wave-animation 1.5s infinite;
+}
+@keyframes wave-animation {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(10deg); }
+    30% { transform: rotate(-5deg); }
+    45% { transform: rotate(10deg); }
+    60% { transform: rotate(-5deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* =========================
+   GRID & CARDS
+========================= */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 30px 50px;
+}
+
+.card {
+    background: rgba(255,255,255,0.95);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 25px rgba(100,150,180,0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-10px) rotateZ(-1deg);
+    box-shadow: 0 12px 35px rgba(100,150,180,0.25);
+}
+
+/* Card titles */
+.card h2 {
+    color: #3a4a5a;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #a0c4e8;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* =========================
+   SKILLS
+========================= */
+.skill {
+    margin: 12px 0;
+}
+
+.skill span {
+    font-weight: bold;
+    display: block;
+    color: #4a5a6a;
+    margin-bottom: 5px;
+}
+
+.skill-bar {
+    height: 18px;
+    background: linear-gradient(90deg,#19303e,#396a7f);
+    border-radius: 9px;
+    width: 0;
+    animation: fillBar 2s forwards;
+}
+
+@keyframes fillBar {
+    from { width: 0; }
+    to { width: var(--width, 80%); }
+}
+
+/* =========================
+   LISTS
+========================= */
+ul { list-style: none; padding: 0; }
+li { margin: 8px 0; color:#19303e; transition: transform 0.3s ease, color 0.3s ease; }
+li:hover { transform: translateX(5px); color: #3e566d; }
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+.social-links a {
+    display: inline-block;
+    margin: 5px 12px;
+    text-decoration: none;
+    color: #3a4a5a;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-links a:hover {
+    color:#1f3e51;
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+    display: inline-block;
+    background: linear-gradient(90deg,#19303e,#396a7f);
+    color: #ffffff;
+    padding: 14px 28px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(100,150,180,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 25px rgba(100,150,180,0.3);
+    background: linear-gradient(90deg,#235367,#a0d4f2);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #3a4a5a;
+    font-size: 0.9em;
+}
+
+/* =========================
+   RESPONSIVE (MOBILE)
+========================= */
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 card per row */
+        padding: 20px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+}
