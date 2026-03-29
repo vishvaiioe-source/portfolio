@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishva's Portfolio</title>
+
+    <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EEK2E20097"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EEK2E20097');
+</script>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -51,7 +64,7 @@
         <!-- Resume Card -->
         <div class="card">
             <h2>Resume</h2>
-            <a href="Resume.docx" download class="btn">Download My Resume</a>
+            <a href="Resume.docx" download class="btn"  id="resume-download">Download My Resume</a>
         </div>
 
         <!-- Social Links Card -->
